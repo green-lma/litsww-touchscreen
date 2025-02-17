@@ -71,7 +71,7 @@
      onMount(() => {
 
         async function OSDInit(){
-            let OpenSeadragon = (await import('Openseadragon')).default  
+            let OpenSeadragon = (await import('openseadragon')).default  
             osd = OpenSeadragon({
             id: `openseadragon${viewerId}`,
             prefixUrl: "/libs/openseadragon/images/",
