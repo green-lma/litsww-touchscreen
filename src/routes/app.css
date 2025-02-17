@@ -1,0 +1,169 @@
+/* reset start */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+	padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+	margin: 0;
+}
+
+/* Set core body defaults */
+body {
+	min-height: 100vh;
+	scroll-behavior: smooth;
+	text-rendering: optimizeSpeed;
+	line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+	list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+	text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+	max-width: 100%;
+	display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+	margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+/* reset end */
+
+@font-face {
+	font-family: Author;
+	src: url('/fonts/Author-Variable.ttf');
+}
+
+:root {
+	--light: 281.81817626953125;
+	--regular: 375;
+	--Medium: 494.7368469238281;
+	--Semibold: 596.1538391113281;
+	--branding-core-red: #d21414;
+	--branding-core-red-tint: #fadcdc;
+	--branding-secondary-red: #e64141;
+	--branding-secondary-red-tint: #f0dcdc;
+	--branding-secondary-yellow: #f5e664;
+	--branding-secondary-yellow-tint: #f5f0d7;
+	--branding-secondary-green: #6eb996;
+	--branding-secondary-green-tint: #6eb996;
+	--branding-secondary-blue: #4b78b9;
+	--branding-secondary-blue-tint: #dce1eb;
+	--branding-secondary-indigo: #50509b;
+	--branding-secondary-indigo-tint: #e1dce6;
+
+	--range-handle-inactive: #e64141;
+	--range-handle-focus: #d21414;
+	--range-slider: rgb(125, 125, 125);
+	--range-pip: pink;
+}
+
+* {
+	font-family: 'Author', serif;
+	font-feature-settings: 'lnum';
+}
+
+h1 {
+	/* font-family: 'Author', serif; */
+	font-variation-settings: 'wght' var(--Semibold);
+}
+
+h1.heading {
+	letter-spacing: 3px;
+	text-transform: uppercase;
+}
+
+p {
+	/* font-family: 'Author', serif; */
+	font-size: 1.2rem;
+	font-variation-settings: 'wght' 350;
+}
+
+.btn {
+	background-color: white;
+	border: 1px solid rgb(179, 179, 179);
+	border-radius: 5px;
+	margin: 2px;
+}
+
+.btn.primary {
+	background-color: var(--branding-core-red);
+	color: white;
+}
+.btn.primary:hover {
+	background-color: var(--branding-core-red-tint);
+	color: rgb(79, 79, 79);
+}
+
+/* .btn {
+	margin: 8px 0;
+	padding: 12px 20px;
+	background-color: rgb(255, 255, 255);
+	border: 1px solid #329567;
+	font-size: 1.2rem;
+	border-radius: 20px;
+}
+
+.btn.btn-next {
+	background-color: var(--branding-secondary-green);
+	color: white;
+}
+input[type='text'],
+input[type='email'],
+select {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+} */
+
+/* label {
+	color: rgb(105, 105, 105);
+	font-variation-settings: 'wght' 350;
+	font-size: 1.2rem;
+} */
+
+/* Set volume control container height and rotate the slider */
