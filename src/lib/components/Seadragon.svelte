@@ -15,7 +15,7 @@
     // export let rotate
     // export let navigatorDiv
 
-    let {viewerId, imageURL, zoomOut, zoomIn, zoomHome, rotate, navigatorDiv} = $props()
+    let {viewerId, imageURL, zoomOut, zoomIn, zoomHome, rotate, rotation, navigatorDiv} = $props()
     // console.log(navigatorDiv)
    
   
@@ -82,6 +82,7 @@
             zoomOutButton:  zoomOut,
             homeButton: zoomHome,
             showRotationControl: true,
+            degrees: rotation,
             rotateRightButton: rotate,
             // visibilityRatio: 0.6,
             crossOriginPolicy: 'Anonymous',

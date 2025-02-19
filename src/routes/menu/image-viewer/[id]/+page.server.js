@@ -13,6 +13,7 @@ function parseImages(imageArray) {
 				id: padToThree,
 				dataIndex: index,
 				label: el.label,
+				rotation: el?.rotation || 0,
 				// image: `${url}/api/files/${el.collectionId}/${el.id}/${el.file}`,
 				// thumbnail: `${url}/api/files/${el.collectionId}/${el.id}/${el.thumbnail}`
 				image: `${el.collectionId}/${el.id}/${el.file}`,

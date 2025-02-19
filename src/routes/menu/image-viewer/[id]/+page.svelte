@@ -5,6 +5,9 @@
     // Set the initial image to the first item in the 'items' array
     // let currentItem = $state(parseInt(data.returned.items[0].id));
     let currentItem = $state(parseInt(data.returned.items[0].dataIndex));
+    let currentRotation = $derived(parseInt(data.returned.items[currentItem].rotation));
+
+    console.log('ROTATION', currentRotation)
      
 
     let zoomIn = $state()
@@ -116,7 +119,7 @@
             </div>
             {#key currentItem}
             <div class="viewer-window" transition:fade={{ delay: 50, duration: 400}}>
-                <Seadragon {navigatorDiv} {zoomHome} {zoomIn} {zoomOut} {rotate} imageURL={currentURL} viewerId={currentItem}/>
+                <Seadragon {navigatorDiv} {zoomHome} {zoomIn} {zoomOut} {rotate} imageURL={currentURL} rotation={currentRotation} viewerId={currentItem}/>
             </div>
             {/key}
         </div>
