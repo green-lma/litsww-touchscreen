@@ -52,9 +52,9 @@
 	tabindex="0"
 >
 <div>
-    <h1 class="front-page-type">Featuring</h1>
-    <h3>Southern Housing Group - A selection of Oral Histories </h3>
-    <h3>The Diary - This is good stuff</h3>
+    <h1 class="front-page-type">Explore Further</h1>
+    <h3>&#9678; Samuel Lewis Housing Trust Remembered</h3>
+    <h3>&#9678; Percy Home's War Diary...a London record</h3>
 </div>
 	
     <!-- <img class="touchscreen-png" src="/images/touchscreen-to-start.png" alt="" /> -->
@@ -74,14 +74,16 @@
     h1 {
     letter-spacing: 0.8rem;
 	text-transform: uppercase;
-    font-size: 3rem;
+    font-size: 2.85rem;
     line-height: 3rem;
+	margin-bottom: 10px;
     }
 
     h3 {
-       letter-spacing: 0.3rem;
-       font-variation-settings: 'wght' var(--regular);
-       font-size: 1.5rem;
+       letter-spacing: 0.22rem;
+       font-weight: 450;
+       font-size: 1.40rem;
+	   margin-bottom: 2px;
     }
 
     /* .front-page-type {
@@ -103,6 +105,7 @@
 		margin: 0;
 		padding: 0;
 		overflow: hidden;
+		/* background-color: rgb(0, 0, 0); works for transition issues */
 	}
 
 	.carousel-container {
@@ -111,6 +114,7 @@
 		height: 100vh;
 		overflow: hidden;
 		cursor: pointer;
+		
 	}
 
 	.carousel-container::after {
@@ -154,7 +158,7 @@
 		/* height: 200px; */
 		background-color: var(--branding-secondary-red);
 		z-index: 2;
-		padding: 40px 40px 40px 100px;
+		padding: 35px 35px 35px 100px;
 		cursor: pointer;
 	}
 </style>

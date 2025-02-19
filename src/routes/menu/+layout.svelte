@@ -2,10 +2,12 @@
 	import { goto } from '$app/navigation';
 	import { setContext } from 'svelte';
 
+	let defaultModalTimeOut = 10
+	let defaultInactivityTimeOut = 60 * 1000 * 60
 	let showModal = $state(false);
 	let timer;
 	let isModalActive = $state(false);
-	let timeLeft = $state(20);
+	let timeLeft = $state(defaultModalTimeOut);
 	let isCountingDown = $state(false);
 	let isInactivityPaused = $state(false);
 
@@ -16,14 +18,14 @@
 			clearTimeout(timer);
 			showModal = false;
 			isCountingDown = false;
-			timeLeft = 20;
+			timeLeft = defaultModalTimeOut;
 
 			// Set timer for inactivity
 			timer = setTimeout(() => {
 				showModal = true;
 				isModalActive = true;
 				isCountingDown = true;
-			}, 50000);
+			}, defaultInactivityTimeOut);
 		}
 	}
 
@@ -43,7 +45,7 @@
 		isModalActive = false;
 		showModal = false;
 		isCountingDown = false;
-		timeLeft = 20;
+		timeLeft = defaultModalTimeOut;
 		resetTimer();
 	}
 
@@ -108,8 +110,8 @@
 {#if showModal}
 	<div class="modal-overlay">
 		<div class="modal">
-			<h2>Are you still there?</h2>
-			<p>You've been inactive for a while.</p>
+			<h2>You have been inactive for a while</h2>
+			<p>If you would like to continue, press continue</p>
 			<p>Redirecting in {timeLeft} seconds...</p>
 			<div class="button-group">
 				<button on:click={handleContinue}>Continue</button>
@@ -138,17 +140,23 @@
 	}
 
 	.modal {
-		background: white;
 		padding: 2rem;
 		border-radius: 8px;
 		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+		background-color: var(--branding-secondary-blue);
+		color: white;
 		text-align: center;
-		width: 70vw;
-		height: 70vh;
+		width: 50vw;
+		height: 50vh;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+	}
+
+	.modal h2 {
+		letter-spacing: 0.4rem;
+		text-transform: uppercase;
 	}
 
 	.button-group {

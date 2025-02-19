@@ -9,12 +9,16 @@ import { millisecondsToReadableTime, formatTimecode } from '$lib/helpers/convers
 import { transcriptScroll } from '$lib/helpers/TranscriptActions.js'
 import { RangeSlider } from 'svelte-range-slider-pips'
 import { goto } from '$app/navigation';
+import { tick } from "svelte";
 
 let interactiveCaptionRefs = $state([])
 let listContainer
 let { data } = $props()
 let sliderValue = $state(0)
 let observer
+
+let sideMenuItems = $state([])
+let sideMenuContainer;
 
 let showInteractiveCaptions = $state(false)
 let showSmallImage = $state(true)
@@ -96,9 +100,29 @@ function prepDataForCues(arr){
 
 let currentItem = $state(0)
 
+async function scrollToActive(index) {
+    console.log('CALEEDDD')
+        await tick(); // Ensure the DOM updates before scrolling
+
+        const el = sideMenuItems[index];
+        if (el && sideMenuContainer) {
+            const containerTop = sideMenuContainer.getBoundingClientRect().top;
+            const elementTop = el.getBoundingClientRect().top;
+            const offset = elementTop - containerTop;
+
+            sideMenuContainer.scrollTo({
+                top: sideMenuContainer.scrollTop + offset - 100, // Adjust offset as needed
+                behavior: "smooth"
+            });
+        }
+}
+
 $effect(() => {
 currentItem;
-console.log('CI', currentItem)
+console.log('RRRRR', sideMenuItems[currentItem])
+
+scrollToActive(currentItem)
+
 })
 
 
@@ -160,8 +184,10 @@ onMount(async () => {
     wave.addAnimation(new wave.animations.Wave({
     count: 100,
     lineWidth: 1,
-    fillColor: 'rgba(255, 255, 255, 0.2)',
-    lineColor: 'rgba(255, 255, 255, 0.01)',
+    // fillColor: 'rgba(255, 255, 255, 0.2)',
+    // lineColor: 'rgba(255, 255, 255, 0.01)',
+    fillColor: '#4b78b9',
+    lineColor: '#6294DD',
     center: true,
     mirroredY: true,
     }));
@@ -171,7 +197,7 @@ onMount(async () => {
           count: 100,
           center: true,
           mirroredY: true,
-          lineColor: 'rgba(255, 255, 255, 0.3)',
+          lineColor: '#4b78b9',
           rounded: true,
           lineWidth: 2,
         })
@@ -321,15 +347,16 @@ function formatMs(value) {
 
 <div class="wrapper">
     <div class="sidebar">
-        <div>
-            <p>Chose an item</p>
+        <div class="sidebar-instructions">
+            <p>To play an item, click on the play icon <svg style="vertical-align: baseline" class="play-icon play-icon-dummy" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg> from the menu below</p>
+            
         </div>
-        <div class="side-menu">
+        <div class="side-menu" bind:this={sideMenuContainer}>
             <ul>
                 {#each data.records as item, index}
                 <!-- svelte-ignore a11y_click_events_have_key_events -->
                 <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-                <li class={ currentItem === index ? 'active' : ''} >
+                <li bind:this={sideMenuItems[index]} class={ currentItem === index ? 'active' : ''} >
                     <div class={currentItem === index ? "header header-active" : "header"}>
                         {#if currentItem === index}  
                         <div class="header-icon">
@@ -454,6 +481,7 @@ function formatMs(value) {
         
             <div class="custom-controlbar">
                 <div class="custom-controlbar-controls">
+                <span class="current-track">Playing: {data.records[currentItem].title}</span>
                 <div class="progress-range">
                     <p>{millisecondsToReadableTime(media.currentTimeMs)}</p>
                     
@@ -504,8 +532,9 @@ function formatMs(value) {
                 <!-- svelte-ignore a11y_no_static_element_interactions -->
                 <div onclick={volumeControl} class="volume-control">
                     <!-- svelte-ignore a11y_consider_explicit_label -->
-                    <button onclick={() => {showDev = true}} class="btn dev-only">Dev Only</button>  
+                    <!-- <button onclick={() => {showDev = true}} class="btn dev-only">Dev Only</button>   -->
                     <!-- svelte-ignore a11y_consider_explicit_label -->
+                     <span class="volume-control-lable">Volume Control</span>
                     <button class="controls-ui-btn" data-volume="down">
                         <svg data-volume="down" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon icon-small icon-small-volume">
                             <path data-volume="down" stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -533,11 +562,65 @@ function formatMs(value) {
 
 <style>
 
-.play-icon {
+    
+
+    .volume-control-lable {
+        color: white;
+        /* background-color: pink; */
+        text-align: center;
+        align-self: center;
+        padding: 2px;
+    }
+
+    .current-track {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        /* background-color: black; */
+        /* font-family: monospace; */
+        font-size: 1.1rem;
+    }
+
+:global(p.trigger-warning)
+     {
+        color: var(--branding-secondary-red);
+        background-color: var(--branding-secondary-red-tint);
+        border: 2px solid var(--branding-secondary-red);
+        border-radius: 5px;
+        margin: 0px 15px;
+        /* padding: 15px; */
+    }
+
+    .play-icon {
 		fill: var(--branding-secondary-blue);
 		width: 40px;
         cursor: pointer;
 	}
+
+    .play-icon.play-icon-dummy {
+        fill: grey;
+        cursor: none;
+        width: 1.2rem;
+        /* height: fit-content; */
+        vertical-align: baseline;
+        transform: translateY(0.2rem);
+    }
+
+    .sidebar-instructions {
+        padding: 15px;
+        display: flex;
+        gap: 0.5rem;
+        background-color: rgb(221, 221, 221);
+        
+    }
+
+    .sidebar-instructions p{
+        font-size: 1.2rem;
+        
+    }
+
+    
 
 	.wave-gif {
 		height: 30px;
@@ -712,7 +795,7 @@ font-size: 0.9rem;
 }
 .wrapper {
     display: grid;
-    grid-template-columns: 2fr 8fr;
+    grid-template-columns: 3fr 9fr;
 }
 
 .sidebar {
@@ -732,22 +815,31 @@ font-size: 0.9rem;
     scrollbar-color: var(--branding-secondary-blue) rgb(221, 221, 221);
     /* scrollbar-width: thin; */
     border-right: 5px solid rgb(221, 221, 221);
+    padding-bottom: 20px;
 }
 
 .sidebar-nav {
-    background-color: grey;
+    background-color: rgb(0, 0, 0);
+    /* border-top: 5px solid var(--branding-secondary-blue-tint); */
     width: 100%;
     position: absolute;
+    display: flex;
+    gap: 1rem;
     bottom: 0;
+    padding: 10px;
 }
 
 .sidebar-nav button {
     margin: 5px;
-    color: rgb(40, 40, 40);
-    background-color: var(--branding-secondary-blue-tint);
-    border: 1px solid var(--branding-secondary-blue);
-    border-radius: 5px;
-    font-size: 1.2rem;
+    /* color: rgb(40, 40, 40);
+    background-color: var(--branding-secondary-blue-tint); */
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: 2px solid white;
+    border-radius: 15px;
+    font-size: 1.1rem;
 }
 
 .menu-details-container {
@@ -810,8 +902,9 @@ z-index: 1;
 }
 
 .icon path {
-    fill: rgba(255, 255, 255, 0.35);
+    fill: rgb(108, 108, 108);
     stroke-width: 1px; 
+   
 }
 
 .icon-small {
@@ -865,7 +958,7 @@ z-index: 1;
     gap: 0.2rem;
     border-radius: 10px;
     z-index: 3;
-    border: 2px solid rgba(57, 57, 57, 0.686);
+    border: 3px solid rgba(255, 255, 255, 0.686);
 }
 
 .custom-controlbar-controls {
