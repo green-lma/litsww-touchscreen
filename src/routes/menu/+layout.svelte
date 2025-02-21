@@ -1,113 +1,113 @@
 <script>
-	import { goto } from '$app/navigation';
-	import { setContext } from 'svelte';
+	// import { goto } from '$app/navigation';
+	// import { setContext } from 'svelte';
 
-	let defaultModalTimeOut = 10
-	let defaultInactivityTimeOut = 60 * 1000 * 60
-	let showModal = $state(false);
-	let timer;
-	let isModalActive = $state(false);
-	let timeLeft = $state(defaultModalTimeOut);
-	let isCountingDown = $state(false);
-	let isInactivityPaused = $state(false);
+	// let defaultModalTimeOut = 10
+	// let defaultInactivityTimeOut = 60 * 1000 * 60
+	// let showModal = $state(false);
+	// let timer;
+	// let isModalActive = $state(false);
+	// let timeLeft = $state(defaultModalTimeOut);
+	// let isCountingDown = $state(false);
+	// let isInactivityPaused = $state(false);
 
-	// Reset the timer when user interacts with the page
-	function resetTimer() {
-		// Only reset if modal is not active and timer isn't paused
-		if (!isModalActive && !isInactivityPaused) {
-			clearTimeout(timer);
-			showModal = false;
-			isCountingDown = false;
-			timeLeft = defaultModalTimeOut;
+	// // Reset the timer when user interacts with the page
+	// function resetTimer() {
+	// 	// Only reset if modal is not active and timer isn't paused
+	// 	if (!isModalActive && !isInactivityPaused) {
+	// 		clearTimeout(timer);
+	// 		showModal = false;
+	// 		isCountingDown = false;
+	// 		timeLeft = defaultModalTimeOut;
 
-			// Set timer for inactivity
-			timer = setTimeout(() => {
-				showModal = true;
-				isModalActive = true;
-				isCountingDown = true;
-			}, defaultInactivityTimeOut);
-		}
-	}
+	// 		// Set timer for inactivity
+	// 		timer = setTimeout(() => {
+	// 			showModal = true;
+	// 			isModalActive = true;
+	// 			isCountingDown = true;
+	// 		}, defaultInactivityTimeOut);
+	// 	}
+	// }
 
-	// Functions to control inactivity timer
-	function pauseInactivityTimer() {
-		isInactivityPaused = true;
-		clearTimeout(timer);
-	}
+	// // Functions to control inactivity timer
+	// function pauseInactivityTimer() {
+	// 	isInactivityPaused = true;
+	// 	clearTimeout(timer);
+	// }
 
-	function resumeInactivityTimer() {
-		isInactivityPaused = false;
-		resetTimer();
-	}
+	// function resumeInactivityTimer() {
+	// 	isInactivityPaused = false;
+	// 	resetTimer();
+	// }
 
-	// Handle user's choice
-	function handleContinue() {
-		isModalActive = false;
-		showModal = false;
-		isCountingDown = false;
-		timeLeft = defaultModalTimeOut;
-		resetTimer();
-	}
+	// // Handle user's choice
+	// function handleContinue() {
+	// 	isModalActive = false;
+	// 	showModal = false;
+	// 	isCountingDown = false;
+	// 	timeLeft = defaultModalTimeOut;
+	// 	resetTimer();
+	// }
 
-	function handleExit() {
-		clearTimeout(timer);
-		isCountingDown = false;
-		showModal = false;
-		isModalActive = false;
-		goto('/', { replaceState: true });
-	}
+	// function handleExit() {
+	// 	clearTimeout(timer);
+	// 	isCountingDown = false;
+	// 	showModal = false;
+	// 	isModalActive = false;
+	// 	goto('/', { replaceState: true });
+	// }
 
-	// Handle countdown
-	$effect(() => {
-		if (isCountingDown && timeLeft > 0 && !isInactivityPaused) {
-			const countdownTimer = setTimeout(() => {
-				timeLeft--;
-			}, 1000);
+	
+	// $effect(() => {
+	// 	if (isCountingDown && timeLeft > 0 && !isInactivityPaused) {
+	// 		const countdownTimer = setTimeout(() => {
+	// 			timeLeft--;
+	// 		}, 1000);
 
-			return () => clearTimeout(countdownTimer);
-		} else if (isCountingDown && timeLeft <= 0) {
-			handleExit();
-		}
-	});
+	// 		return () => clearTimeout(countdownTimer);
+	// 	} else if (isCountingDown && timeLeft <= 0) {
+	// 		handleExit();
+	// 	}
+	// });
 
-	// Set up event listeners when component mounts
-	$effect(() => {
-		const events = [
-			'mousedown',
-			'mousemove',
-			'keydown',
-			'scroll',
-			'touchstart',
-			'touchmove', // Add this: detects finger movement on screen
-			'touchend', // Add this: detects when touch ends
-			'touchcancel' // Add this: detects when touch is interrupted
-		];
+	// // Set up event listeners when component mounts
+	// $effect(() => {
+	// 	const events = [
+	// 		'mousedown',
+	// 		'mousemove',
+	// 		'keydown',
+	// 		'scroll',
+	// 		'touchstart',
+	// 		'touchmove', // Add this: detects finger movement on screen
+	// 		'touchend', // Add this: detects when touch ends
+	// 		'touchcancel' // Add this: detects when touch is interrupted
+	// 	];
 
-		events.forEach((event) => {
-			window.addEventListener(event, resetTimer);
-		});
+	// 	events.forEach((event) => {
+	// 		window.addEventListener(event, resetTimer);
+	// 	});
 
-		// Initial timer setup
-		resetTimer();
+	// 	// Initial timer setup
+	// 	resetTimer();
 
-		// Cleanup when component unmounts
-		return () => {
-			events.forEach((event) => {
-				window.removeEventListener(event, resetTimer);
-			});
-			clearTimeout(timer);
-		};
-	});
+	// 	// Cleanup when component unmounts
+	// 	return () => {
+	// 		events.forEach((event) => {
+	// 			window.removeEventListener(event, resetTimer);
+	// 		});
+	// 		clearTimeout(timer);
+	// 	};
+	// });
 
-	// Expose timer controls to child components
-	setContext('inactivityTimer', {
-		pause: pauseInactivityTimer,
-		resume: resumeInactivityTimer,
-		isPaused: () => isInactivityPaused
-	});
+	// // Expose timer controls to child components
+	// setContext('inactivityTimer', {
+	// 	pause: pauseInactivityTimer,
+	// 	resume: resumeInactivityTimer,
+	// 	isPaused: () => isInactivityPaused
+	// });
 </script>
 
-{#if showModal}
+<!-- {#if showModal}
 	<div class="modal-overlay">
 		<div class="modal">
 			<h2>You have been inactive for a while</h2>
@@ -119,7 +119,7 @@
 			</div>
 		</div>
 	</div>
-{/if}
+{/if} -->
 
 <slot />
 
