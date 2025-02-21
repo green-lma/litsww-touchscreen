@@ -241,7 +241,7 @@
     } */
     
     :global(.carousel-image.active-thumbnail){
-      border: 2px solid pink;
+      border: 2px solid var(--branding-secondary-blue-tint);
       filter: grayscale(0) brightness(1.1) saturate(1.1);
       border-radius: 3px;
     }

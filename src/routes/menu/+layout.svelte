@@ -111,8 +111,8 @@
 	<div class="modal-overlay">
 		<div class="modal">
 			<h2>You have been inactive for a while</h2>
-			<p>If you would like to continue, press continue</p>
-			<p>Redirecting in {timeLeft} seconds...</p>
+			<p>Would you like to continue?</p>
+			<p>Closing the session in {timeLeft} seconds...</p>
 			<div class="button-group">
 				<button on:click={handleContinue}>Continue</button>
 				<button on:click={handleExit}>Exit</button>

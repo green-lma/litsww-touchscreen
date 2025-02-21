@@ -53,15 +53,17 @@
 >
 <div>
     <h1 class="front-page-type">Explore Further</h1>
-    <h3>&#9678; Samuel Lewis Housing Trust Remembered</h3>
-    <h3>&#9678; Percy Home's War Diary...a London record</h3>
+    <!-- <h3>&#9678; Samuel Lewis Housing Trust Remembered</h3>
+    <h3>&#9678; Percy Home's War Diary...a London record</h3> -->
+	<h3>Samuel Lewis Housing Trust Remembered</h3>
+    <h3>Percy Home's War Diary...a London record</h3>
 </div>
 	
     <!-- <img class="touchscreen-png" src="/images/touchscreen-to-start.png" alt="" /> -->
 </div>
 
 <div class="touchscreen-graphic">
-	<img src="/images/touchscreen-to-start.png" alt="" />
+	<img src="/images/touchscreen-to-start-red.png" alt="" />
 </div>
 
 <style>
@@ -97,9 +99,9 @@
 	}
 
 	.touchscreen-graphic img {
-		width: 200px;
-		height: 200px;
-		opacity: 0.8;
+		width: 190px;
+		height: 190px;
+		/* opacity: 0.8; */
 	}
 	:global(body) {
 		margin: 0;
@@ -117,7 +119,7 @@
 		
 	}
 
-	.carousel-container::after {
+	/* .carousel-container::after {
 		content: '';
 		position: absolute;
 		inset: 0;
@@ -126,7 +128,19 @@
 			radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
 		z-index: 1;
 		pointer-events: none;
+	} */
+
+	.carousel-container::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background-color: #f0dcdcc3;
+		backdrop-filter: brightness(90%) grayscale(80%) contrast(200%);
+		z-index: 1;
+		pointer-events: none;
+		backdrop-filter: saturation(30%);
 	}
+	
 
 	.carousel-image {
 		position: absolute;
