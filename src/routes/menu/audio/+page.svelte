@@ -184,10 +184,10 @@ onMount(async () => {
     wave.addAnimation(new wave.animations.Wave({
     count: 100,
     lineWidth: 1,
-    // fillColor: 'rgba(255, 255, 255, 0.2)',
-    // lineColor: 'rgba(255, 255, 255, 0.01)',
-    fillColor: '#4b78b9',
-    lineColor: '#6294DD',
+    fillColor: 'rgba(255, 255, 255, 0.2)',
+    lineColor: 'rgba(255, 255, 255, 0.01)',
+    // fillColor: '#4b78b9',
+    // lineColor: '#6294DD',
     center: true,
     mirroredY: true,
     }));
@@ -197,7 +197,7 @@ onMount(async () => {
           count: 100,
           center: true,
           mirroredY: true,
-          lineColor: '#4b78b9',
+          lineColor: '#6294DD',
           rounded: true,
           lineWidth: 2,
         })
@@ -347,10 +347,10 @@ function formatMs(value) {
 
 <div class="wrapper">
     <div class="sidebar">
-        <div class="sidebar-instructions">
+        <!-- <div class="sidebar-instructions">
             <p>To play an item, click on the play icon <svg style="vertical-align: baseline" class="play-icon play-icon-dummy" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg> from the menu below</p>
             
-        </div>
+        </div> -->
         <div class="side-menu" bind:this={sideMenuContainer}>
             <ul>
                 {#each data.records as item, index}
@@ -1040,7 +1040,7 @@ input#progress {
 .image-container::after {
     content: '';
     position: absolute;
-    background: radial-gradient(circle, rgba(71, 71, 71, 0.5) 10%, rgba(71, 71, 71, .8) 95%);
+    background: radial-gradient(circle, rgba(71, 71, 71, 0.4) 30%, rgba(71, 71, 71, .8) 75%);
     width: 100%;
     height: 100%;
 }
@@ -1162,7 +1162,7 @@ li.active .accordion .menu-details-container{
 }
 
 :global(p.speaker_2) {
-    color: green;
+    color: rgb(235, 177, 222);
 }
 
 

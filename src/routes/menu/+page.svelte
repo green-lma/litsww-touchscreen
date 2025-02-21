@@ -59,7 +59,7 @@
         position: relative;
         width: calc(90% - 70px);
         margin-left: 70px;
-        margin-top: 50px;
+        margin-top: 20px;
         height: 490px;
         object-fit: cover;
         /* object-position: -40px 15%; */
@@ -73,7 +73,7 @@
         height: 30px; */
         width: calc(90% - 50px);
         margin-right: 50px;
-        margin-bottom: 50px;
+        margin-bottom: 20px;
         height: 310px;
         object-fit: cover;
         object-position: 0px 15%;
@@ -137,13 +137,14 @@ a.btn{
 
     .section p {
         margin-bottom: 10px;
-        font-size: 1.2rem;
+        font-size: 1.15rem;
     }
 
    .section h2 {
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     letter-spacing: 0.2rem;
-    margin-bottom: 20px;
+    font-weight: 450;
+    margin-bottom: 15px;
    }
 
     .diary-section {
@@ -178,7 +179,7 @@ a.btn{
 
     .section-right {
         padding: 25px 70px 25px 25px;
-        margin-bottom: 70px;
+        margin-bottom: 135px;
     }
 
     .section-left {

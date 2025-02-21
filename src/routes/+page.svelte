@@ -63,7 +63,7 @@
 </div>
 
 <div class="touchscreen-graphic">
-	<img src="/images/touchscreen-to-start-red.png" alt="" />
+	<img src="/images/touchscreen-to-start.png" alt="" />
 </div>
 
 <style>
@@ -134,12 +134,24 @@
 		content: '';
 		position: absolute;
 		inset: 0;
+		background:
+			linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)),
+			radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.2) 100%);
+		z-index: 1;
+		pointer-events: none;
+		backdrop-filter: brightness(95%) grayscale(30%) blur(1px);
+	}
+
+	/* .carousel-container::after {
+		content: '';
+		position: absolute;
+		inset: 0;
 		background-color: #f0dcdcc3;
 		backdrop-filter: brightness(90%) grayscale(80%) contrast(200%);
 		z-index: 1;
 		pointer-events: none;
 		backdrop-filter: saturation(30%);
-	}
+	} */
 	
 
 	.carousel-image {
