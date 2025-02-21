@@ -66,8 +66,8 @@
     <div class="side-panel">
         <p>This is the side panel</p>
         <nav class="sidebar-nav">
-            <button onclick={() => {goto('/menu')}}>Main menu</button>
-            <button onclick={() => {goto('/')}}>Close and exit</button>
+            <button onpointerdown={() => {goto('/menu')}}>Main menu</button>
+            <button onpointerdown={() => {goto('/')}}>Close and exit</button>
         </nav>
     </div>
 
@@ -75,12 +75,12 @@
        
         <div class="view-area">
             <!-- svelte-ignore a11y_consider_explicit_label -->
-            <button class="prev-next-buttons" id="prev-button" onclick={prevItem}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="nav-icon size-6">
+            <button class="prev-next-buttons" id="prev-button" onpointerdown={prevItem}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="nav-icon size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
               </svg>
               </button>
             <!-- svelte-ignore a11y_consider_explicit_label -->
-            <button class="prev-next-buttons" id="next-button" onclick={nextItem}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="nav-icon size-6">
+            <button class="prev-next-buttons" id="next-button" onpointerdown={nextItem}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="nav-icon size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
               </svg>
               </button>
