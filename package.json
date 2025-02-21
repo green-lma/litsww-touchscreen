@@ -20,6 +20,7 @@
 	},
 	"dependencies": {
 		"@foobar404/wave": "^2.0.5",
+		"@sveltejs/adapter-static": "^3.0.8",
 		"flickity": "^3.0.0",
 		"openseadragon": "^5.0.0",
 		"pocketbase": "^0.21.5",

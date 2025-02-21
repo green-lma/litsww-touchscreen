@@ -566,7 +566,7 @@ span.nav-span svg {
     width: 100%;
     height: 100%;
     border-radius: inherit;
-    backdrop-filter: blur(3px);
+    /* backdrop-filter: blur(3px); */
     z-index: -1;
     
 }
@@ -614,7 +614,7 @@ svg .icon-small {
         background-color: rgba(255, 255, 255, 0.1);
         border-radius: 50%;
         padding: 5px;
-        backdrop-filter: brightness(110%) blur(0.5px);
+        /* backdrop-filter: brightness(110%) blur(0.5px); */
     
     }
 

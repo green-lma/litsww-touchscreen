@@ -194,8 +194,8 @@ a.btn{
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: #f0dcdce7;
-        backdrop-filter: saturate(30%) brightness(120%);
+        background-color: #f0dcdcf0;
+        /* backdrop-filter: saturate(30%) brightness(120%); */
     }
 
     a.nav-btn {

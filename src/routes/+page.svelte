@@ -139,7 +139,7 @@
 			radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.2) 100%);
 		z-index: 1;
 		pointer-events: none;
-		backdrop-filter: brightness(95%) grayscale(30%) blur(1px);
+		/* backdrop-filter: brightness(95%) grayscale(30%) blur(1px); */
 	}
 
 	/* .carousel-container::after {

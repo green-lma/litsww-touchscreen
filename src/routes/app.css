@@ -168,8 +168,12 @@ select {
 
 /* Set volume control container height and rotate the slider */
 
-@media (pointer: coarse) {
+/* @media (pointer: coarse) {
 	* {
 		cursor: none;
 	}
+} */
+
+* {
+	cursor: none;
 }

@@ -232,7 +232,7 @@
       max-height: 100px;
       margin-right: 10px;
       border: 4px solid rgba(0, 0, 0, 0);
-      filter: grayscale(0.9) brightness(0.8) sepia(0.7);
+      /* filter: grayscale(0.9) brightness(0.8) sepia(0.7); */
      
     }
     
@@ -242,7 +242,7 @@
     
     :global(.carousel-image.active-thumbnail){
       border: 2px solid var(--branding-secondary-blue-tint);
-      filter: grayscale(0) brightness(1.1) saturate(1.1);
+      /* filter: grayscale(0) brightness(1.1) saturate(1.1); */
       border-radius: 3px;
     }
     

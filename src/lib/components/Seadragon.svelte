@@ -20,9 +20,9 @@
    
   
     import { onMount} from 'svelte';
-    import { env } from '$env/dynamic/public'
+    // import { env } from '$env/dynamic/public'
 
-    console.log(env.PUBLIC_IMAGE_SERVER)
+    // console.log(env.PUBLIC_IMAGE_SERVER)
 
     let osd = $state()
 
