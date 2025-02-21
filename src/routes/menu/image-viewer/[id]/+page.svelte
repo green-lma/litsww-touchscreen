@@ -63,13 +63,13 @@
 <!-- <div bind:this={viewer} id="viewer" class="viewer-window" in:blur={{duration: 400, amount: '8px'}}> -->
 <div class="page-wrapper">
 
-    <div class="side-panel">
+    <!-- <div class="side-panel">
         <p>This is the side panel</p>
         <nav class="sidebar-nav">
             <button onpointerdown={() => {goto('/menu')}}>Main menu</button>
             <button onpointerdown={() => {goto('/')}}>Close and exit</button>
         </nav>
-    </div>
+    </div> -->
 
     <div class="viewer-wrapper">
        
@@ -130,10 +130,10 @@
     
     
     <div class="bottom-thumb-container">
-        <!-- <nav class="sidebar-nav">
+        <nav class="sidebar-nav">
             <button onclick={() => {goto('/menu')}}><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M280-600v-80h560v80H280Zm0 160v-80h560v80H280Zm0 160v-80h560v80H280ZM160-600q-17 0-28.5-11.5T120-640q0-17 11.5-28.5T160-680q17 0 28.5 11.5T200-640q0 17-11.5 28.5T160-600Zm0 160q-17 0-28.5-11.5T120-480q0-17 11.5-28.5T160-520q17 0 28.5 11.5T200-480q0 17-11.5 28.5T160-440Zm0 160q-17 0-28.5-11.5T120-320q0-17 11.5-28.5T160-360q17 0 28.5 11.5T200-320q0 17-11.5 28.5T160-280Z"/></svg>Main menu</button>
             <button onclick={() => {goto('/')}}><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M200-120q-33 0-56.5-23.5T120-200v-160h80v160h560v-560H200v160h-80v-160q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm220-160-56-58 102-102H120v-80h346L364-622l56-58 200 200-200 200Z"/></svg>Close and exit</button>
-        </nav> -->
+        </nav>
         <Thumbnails items={data.returned.items} currentItem={currentItem} inflate={setCurrentItem}/>
     </div>
         
@@ -146,13 +146,13 @@
 <style>
 
 .sidebar-nav {
-    background-color: rgb(34, 34, 34);;
-    border-top: 1px solid #616161;
+    /* background-color: rgb(34, 34, 34);;
+    border-top: 1px solid #616161; */
     display: flex;
     align-items: center;
     position: absolute;
-    bottom: 0;
-    width: 100%;
+    bottom: 100px;
+    /* width: 100%; */
     height: 120px;
 }
    
@@ -181,6 +181,7 @@
 
     .bottom-thumb-container {
         display: flex;
+       
     }
 
     svg.osd-button {
@@ -222,8 +223,8 @@ span.nav-span svg {
 
     .page-wrapper {
         display: grid;
-        grid-template-columns: 1fr 4fr;
-        /* grid-template-columns: 1fr; */
+        /* grid-template-columns: 1fr 4fr; */
+        grid-template-columns: 1fr;
         height: 100vh;
     }
 
