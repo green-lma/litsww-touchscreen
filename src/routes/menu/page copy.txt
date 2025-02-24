@@ -9,10 +9,9 @@
                 <p>Percy Home, artist and designer, kept this diary when living at 11 Onslow Gardens, South Kensington, in 1944. It has the form of a scrapbook and includes pencil, pen and watercolour drawings and newspaper clippings that record events from that year. It gives us a vivid portrayal of the experience of living in a city at war.</p>
                 <p>The original diary is on display in one of the exhibition cases, but here you can browse a fully digitised version. Percy Home's War Diary…a London record, 1944.</p>
                 <p>CLC/521/MS21599</p>
-                <a class="btn" href="/menu/image-viewer/vlu9igkgnm7oin6">View the diary</a>
             </div>
     
-            
+            <a class="btn" href="/menu/image-viewer/vlu9igkgnm7oin6">View the diary</a>
 
         </div>
         <!-- <img class="menu-image-left" src="/images/screensaver/rotator3.webp" alt=""> -->
@@ -29,9 +28,8 @@
                 <p>To celebrate the centenary of the Samuel Lewis Housing Trust, an oral history project was begun in 1999, funded by the Southern Housing Foundation. The aim of the project was 'to celebrate those lives, past and present, reflecting the changes that the last century has brought, preserving memories, photographs, documents and anything tenants feel would be of interest to their fellow tenants and others in their community'.</p>
                 <p>Tenants spoke of childhood, starting work, building homes, and navigating both joyful and challenging times. Here, you can listen to a selection of interviews that recount life during the Second World War, from soldiers on the frontlines to civilians on the home front. You can listen to the full interviews in our Mediatheque.</p>
                 <p>Edited selection of extracts from interviews and reminiscences of tenants of the Housing Trust, from the Through Different Eyes oral history project, 1999-2001.</p>
-                <a class="btn" href="/menu/audio">Listen to the interviews</a>
             </div>
-            
+            <a class="btn" href="/menu/audio">Listen to the interviews</a>
         </div>
 
         
@@ -40,8 +38,7 @@
 </div>
 
 <div class="nav-bottom">
-   
-    <button onclick={() => {goto('/')}}><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M200-120q-33 0-56.5-23.5T120-200v-160h80v160h560v-560H200v160h-80v-160q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm220-160-56-58 102-102H120v-80h346L364-622l56-58 200 200-200 200Z"/></svg>Close and exit</button>
+    <a href="/" class="btn-bottom" >EXIT</a>
 </div>
 
 
@@ -52,56 +49,34 @@
         position: absolute;
         bottom: 0;
         left: 0;
-        z-index: 99;
+        /* background-color: rgb(21, 178, 71); */
         height: 70px;
-        padding-left: 30px;
-        width: fit-content;
+        padding-left: 70px;
     }
-    .nav-bottom button {
-    margin: 5px;
-
-    background-color: var(--branding-secondary-red);
-    color: white;
-    text-transform: uppercase;
-    font-weight: 600;
-    border: 2px solid white;
-    border-radius: 15px;
-    font-size: 1.1rem;
-    padding: 8px;
-    display: flex;
-    gap: 0.2rem;
-    }
-
-.nav-bottom svg {
-    fill: white;
-}
-    
     .menu-image-left {
         display: block;
-        z-index: 11;
+        z-index: 2;
         position: relative;
-        width: 100%;
-        /* margin-left: 70px; */
-        /* margin-top: 20px; */
-        height: 100%;
+        width: calc(90% - 70px);
+        margin-left: 70px;
+        margin-top: 20px;
+        height: 490px;
         object-fit: cover;
-       
         /* object-position: -40px 15%; */
     }
 
     .menu-image-right {
         display: block;
-        z-index: 10;
+        z-index: 20;
         position: relative;
         /* width: 30px;
         height: 30px; */
-        /* width: calc(90% - 50px);
+        width: calc(90% - 50px);
         margin-right: 50px;
-        margin-bottom: 20px; */
-        height: 100%;
+        margin-bottom: 20px;
+        height: 310px;
         object-fit: cover;
-        object-position: 73px -25px;
-        scale: 1.2;
+        object-position: 0px 15%;
     }
 
 a.btn{
@@ -111,10 +86,10 @@ a.btn{
     text-decoration: none;
     padding: 1.1rem 1rem;
     border-radius: 2.5rem;
-    color: var(--branding-secondary-red);
+    color: rgb(255, 255, 255);
     width: fit-content;
     display: block;
-    background-color: rgb(255, 255, 255);
+    background-color: unset;
     margin-top: 30px;
   }
 
@@ -157,14 +132,12 @@ a.btn{
     .section {
         /* padding: 100px; */
         position: relative;
-        display: grid;
-        grid-template-rows: 1fr 1fr;
        
     }
 
     .section p {
         margin-bottom: 10px;
-        font-size: 1.2rem;
+        font-size: 1.15rem;
     }
 
    .section h2 {
@@ -183,8 +156,10 @@ a.btn{
         color: white;
     }
 
-    /* .shg-section {
-        
+    .shg-section {
+        /* background-color: yellow; */
+        /* background: url('/images/menu_shg.jpg') center/cover no-repeat; */
+        /* height: 100%; */
         position: relative;
         color: white;
         display: flex;
@@ -192,22 +167,25 @@ a.btn{
         align-items: flex-end;
         flex-direction: column;
         
-    } */
+    }
 
     .section .section-content {
         position: relative;
-        z-index: 99;
-        /* max-width: 90%; */
-        height: 100%;
+        z-index: 1;
+        max-width: 90%;
         background-color: var(--branding-secondary-red);
-        color: white;
-        padding: 30px;
-        display: flex;
-        align-items: center;
-        
+        /* padding: 10px 50px 10px 100px; */
     }
 
-   
+    .section-right {
+        padding: 25px 70px 25px 25px;
+        margin-bottom: 135px;
+    }
+
+    .section-left {
+        padding: 25px 25px 25px 70px;
+        margin-top: 70px;
+    }
 
     .section::after {
         content: '';

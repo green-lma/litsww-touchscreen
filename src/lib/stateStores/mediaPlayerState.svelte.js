@@ -32,7 +32,14 @@ export function mediaPlayerStop() {
 	}
 }
 
-export function mediaStateReset() {}
+export function mediaStateReset() {
+	// console.log('RESET')
+	// media.keystoneId = '';
+	// media.playing = false;
+	// media.currentTimeMs = 0;
+	// media.seek = 0;
+	// media.seekingValue = 0;
+}
 
 // export const captions = $state({
 // 	currentTimeMs: 0,

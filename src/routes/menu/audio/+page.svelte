@@ -1,5 +1,5 @@
 <script>
-import {media, captions, mediaPlayerStop, mediaPlayerStart} from '$lib/stateStores/mediaPlayerState.svelte.js'
+import {media, captions, mediaPlayerStop, mediaPlayerStart, mediaStateReset} from '$lib/stateStores/mediaPlayerState.svelte.js'
 import MediaItem from '$lib/components/MediaItem.svelte'
 import Accordion from '$lib/components/Accordion.svelte'
 import { onMount } from 'svelte';
@@ -10,6 +10,9 @@ import { transcriptScroll } from '$lib/helpers/TranscriptActions.js'
 import { RangeSlider } from 'svelte-range-slider-pips'
 import { goto } from '$app/navigation';
 import { tick } from "svelte";
+import { onDestroy } from 'svelte';
+
+
 
 let interactiveCaptionRefs = $state([])
 let listContainer
@@ -175,6 +178,7 @@ $effect(() => {
 
 
 onMount(async () => {
+  mediaStateReset()
   window.oncontextmenu = function() { return false; }
   
   const { Wave } = await import('@foobar404/wave');
@@ -202,8 +206,12 @@ onMount(async () => {
           lineWidth: 2,
         })
     );
+
+    
      
 })
+
+
 
 // INIT - Set the initial record
 changeSource(data.records[0], 0)
