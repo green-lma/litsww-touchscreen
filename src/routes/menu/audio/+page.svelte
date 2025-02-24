@@ -946,7 +946,7 @@ z-index: 1;
 
 
 .custom-controlbar {
-    background-color: rgba(5, 5, 5, 0.2);
+    background-color: rgba(5, 5, 5, 0.629);
     
     /* position: fixed; */
     bottom: 0;
@@ -960,7 +960,7 @@ z-index: 1;
     /* padding: 5px; */
     display: flex;
     flex-direction: column;
-    backdrop-filter: blur(5px);
+    /* backdrop-filter: blur(5px); */
     gap: 0.2rem;
     border-radius: 10px;
     z-index: 3;
@@ -1061,8 +1061,8 @@ input#progress {
 
 .caption-container .caption {
     max-width: 80%;
-    background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(4px);
+    background-color: rgba(0, 0, 0, 0.571);
+    /* backdrop-filter: blur(4px); */
     border-radius: 5px;
     display: flex;
     flex-direction: column;
