@@ -33,9 +33,7 @@
 <div
     class="carousel-container"
     on:click={handleClick}
-    on:keydown={handleClick}
-    role="button"
-    tabindex="0"
+    
 >
     {#each images as image, i}
         {#if i === index}
@@ -53,8 +51,8 @@
 <div
     class="red-rectangle"
     on:click={handleClick}
-    on:keydown={handleClick}
-    tabindex="0"
+   
+    
 >
     <div>
         <h1 class="front-page-type">Explore Further</h1>
