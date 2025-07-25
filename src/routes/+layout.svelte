@@ -18,7 +18,17 @@
 
 <style>
     .app-layout-wrapper {
-        /* padding: 20px; */
-        /* background-color: rgb(51, 51, 51); */
+        /* width: 900px;
+        height: 900px;
+        background-color: rgb(21, 111, 43); */
+        
     }
+
+    .page-load-wrapper {
+        /* width: 800px;
+        height: 800px;
+        background-color: rgb(204, 209, 37); */
+        
+    }
+
 </style>

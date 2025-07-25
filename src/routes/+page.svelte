@@ -63,7 +63,7 @@
     </div>
 </div>
 
-<div class="touchscreen-graphic">
+<div class="touchscreen-graphic" on:click={handleClick}>
     <img src="/images/touchscreen-to-start.png" alt="" />
 </div>
 
@@ -92,6 +92,7 @@
         position: absolute;
         right: 100px;
         bottom: 100px;
+        z-index: 99;
     }
 
     .touchscreen-graphic img {
@@ -151,7 +152,7 @@
         bottom: 100px;
         width: fit-content;
         background-color: var(--branding-secondary-red);
-        z-index: 2;
+        z-index: 98;
         padding: 35px 35px 35px 100px;
         cursor: pointer;
     }
